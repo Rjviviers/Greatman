@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:ID;datatype:int,name:stocknom;datatype:string,name:path;datatype:blob" />
+	<infoitem key="UD_Recordset2" value="name:ID;datatype:int,name:stocknom;datatype:string,name:make;datatype:string,name:model;datatype:string,name:yearmodel;datatype:string,name:km;datatype:int,name:extras;datatype:blob,name:fueltype;datatype:string,name:color;datatype:string,name:gearbox;datatype:string,name:wheelbase;datatype:string" />
+</info>
