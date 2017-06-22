@@ -72,25 +72,21 @@ $totalRows_Recordset2 = mysql_num_rows($Recordset2);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Dashboard</title>
-<link href="stylesheet.css" rel="stylesheet" type="text/css">
+<link href="css/nav.css" rel="stylesheet" type="text/css">
     
 <script src="jquery.min.js"></script>
 <script src="ajaxfile.js"></script>
 </head>
 <body>
-</div><a href="dashboard.php" style="position:absolute; top:0%;">home</a>
- <?php
-        include './nav.php';
- ?>
-<div id="topbar">
-<span id="about" class="topbar" onclick="about()">
-about
-</span>
-<div id="info" class="topbar" onclick="jkl()">
-leave info
-</div>
-</div>
 
+ <div id="cssmenu" >
+                <ul >
+                    <li><a href="dashboard.php" >Home</a></li>
+                    <li><a onclick="about()" style="cursor:pointer">About us</a></li>
+                    <li><a onclick="jkl()" style="cursor:pointer">Sell your car</a></li>
+                    <li><a style="cursor:pointer">Browse cars</a></li>
+                </ul>
+</div>
 <div id="myModal" class="modal">
   <div class="model-content">
   <div id="toe" onclick="sp()">
@@ -124,16 +120,43 @@ while($gebruik=mysql_fetch_array($kryphotos))
 {
 	$path=$gebruik["path"];
 	$stock=$gebruik["stocknom"];
-	?>
+?>
     	<img class="mySlides" onclick="enkelrek(<?php echo $stock?>)"  src="<?php echo $path?>.jpg">
-    <?php
+<?php
 }
 ?>
 <script>
 carousel();
 </script>
-<span onclick="next()" style="position:absolute; top:35%; left:66%; cursor:pointer; width:50px;height:50%">Next</span>
-<span onclick="terug()" style="position:absolute; top:35%; left:32%; cursor:pointer; width:50px;height:50%">Back</span>
+<div class="skip" id="regs" onclick="next()"><img src="regs.png"/></div>
+<div class="skip" id="links" onclick="terug()"><img src="links.png" /></div>
+</div>
+<div id="search">
+<h3 style="padding-top:0px;text-align:center">Search</h3>
+	<form action="" method="post" name="search" style="padding-left:4%">
+    Make:<br />
+    <select name="make">
+    <?php
+	while($gebruikmake=mysql_fetch_array($krymake))
+	{
+	?>
+    <option value="<?php echo $make?>"><?php echo $make?></option>
+    <?php
+	}
+	?>
+    </select><br />
+    Model:<br />
+    <input name="model" type="text" style="width:100px"/><hr />
+	Minimum price: <br />R
+    <input name="prysvan" type="text" style="width:100px"/><br />
+	Maximum price: <br />R
+    <input name="prystot" type="text" style="width:100px"/><hr />
+	Minimum Km:<br />
+    <input name="kmvan" type="text" style="width:100px"/>Km<br />
+    Maximum Km:<br />
+    <input name="kmtot" type="text" style="width:100px"/>Km<hr />
+    <input name="Submit" type="submit" value="Search" />
+    </form>
 </div>
 </body>
 </html>
